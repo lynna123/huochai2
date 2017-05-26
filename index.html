@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>火柴互娱邀请函</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        window.onload= function () {
+            var desW=640; //设计稿宽度
+            var winW=document.documentElement.clientWidth;  //设备的宽度
+            var w=document.getElementById("content");
+            if(winW>=640){
+                w.style.width="640px";
+                var width=w.offsetWidth;
+                document.documentElement.style.fontSize=width/desW*100+'px'; //各个设备根元素字体大小
+            }else{
+                document.documentElement.style.fontSize=winW/desW*100+'px'; //各个设备根元素字体大小
+            }
+        }
+    </script>
+</head>
+<body id="content">
+<section class="music">
+    <!--controls显示用户操作界面
+        autoplay:自动播放
+        loop循环播放
+        preload:auto; 预加载音频文件
+        metadata 之家在音频文件的原数据 ，例如（音频文件总共的播放时间 none 不提前加载音频文件）
+    -->
+    <audio src="audio/music.mp3"  autoplay  preload="none" id="audio"></audio>
+</section>
+<section class="main">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <h2><img src="img/page1_tit.png" alt=""></h2>
+                <p class="page1_logo"><img src="img/page1_logo.png" alt=""></p>
+                <p class="bottom"><img src="img/bottom2.png" alt=""></p>
+                <p class="month"><img src="img/month.png" alt=""></p>
+                <div class="black"></div>
+            </div>
+            <div class="swiper-slide article slide2" >
+                <div class="article1">
+                    <h1><img src="img/page2_tit.png" alt=""></h1>
+                    <p class="letter"><img src="img/page2_p.png" alt=""></p>
+                    <p class="img"><img src="img/page2_pic.png" alt=""></p>
+                    <p class="bottom"><img src="img/bottom.png" alt=""></p>
+                </div>
+                <div class="line_bg"><img src="img/line.png" alt=""></div>
+                <div class="black"></div>
+            </div>
+            <div class="swiper-slide article slide3" >
+                <div class="article1">
+                    <h1><img src="img/page3_tit.png" alt=""></h1>
+                    <p class="letter"><img src="img/page3_p.png" alt=""></p>
+                    <p class="img"><img src="img/page3_pic.png" alt=""></p>
+                    <p class="bottom"><img src="img/bottom.png" alt=""></p>
+                </div>
+                <div class="line_bg"><img src="img/line.png" alt=""></div>
+                <div class="black"></div>
+            </div>
+            <div class="swiper-slide article slide4" >
+                <div class="article1">
+                    <h1><img src="img/page4_tit.png" alt=""></h1>
+                    <p class="letter"><img src="img/page4_p.png" alt=""></p>
+                    <p class="img"><img src="img/page4_pic.png" alt=""></p>
+                    <p class="bottom"><img src="img/bottom.png" alt=""></p>
+                </div>
+                <div class="line_bg"><img src="img/line.png" alt=""></div>
+                <div class="black"></div>
+            </div>
+            <div class="swiper-slide article slide5" >
+                <div class="article1">
+                    <h1><img src="img/page5_tit.png" alt=""></h1>
+                    <p class="letter"><img src="img/page5_p.png" alt=""></p>
+                    <p class="img"><img src="img/page5_pic.png" alt=""></p>
+                    <p class="bottom"><img src="img/bottom2.png" alt=""></p>
+                </div>
+                <div class="line_bg"><img src="img/line.png" alt=""></div>
+                <div class="black"></div>
+            </div>
+            <div class="swiper-slide slide6" >
+                <p class="page6_logo"><img src="img/logo.png" alt=""></p>
+                <p class="bottom"><img src="img/bottom3.png" alt=""></p>
+                <div class="line_bg"><img src="img/line.png" alt=""></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+    <div class="u-arrow-bottom">
+        <div class="pre-wrap">
+            <div class="pre-box1">
+                <div class="pre1"></div>
+            </div>
+            <div class="pre-box2">
+                <div class="pre2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/jquery-1.4.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+
+
+
+
+
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'vertical',//vertical纵向  horizontal横向
+        loop:true, //循环模式
+        onTransitionEnd: function (swiper) {   //滑块滑动结束时  会丢失滑块
+            var curIndex=swiper.activeIndex;//当前活动滑块的索引（也就是上一个滑块滑动结束后，到下一个滑块的索引）
+            var slides=swiper.slides; //获取所有的滑块
+            //通过当前活动滑块的索引找到对应的滑块，并给她增加相应的id名
+            [].forEach.call(slides, function (item,index) {
+                item.id='';
+                if(index==curIndex){
+                    //当前活动滑块的索引是否是第一个或者最后一个
+                    /*if(index==0){
+                     slides[curIndex].id='page'+(slides.length-2);
+                     }else if(index==slides.length-1){
+                     slides[curIndex].id='page1';
+                     }else{
+                     slides[curIndex].id='page'+index;
+                     }*/
+                    switch(index){
+                        case 0:
+                            item.id='page'+(slides.length-2);
+                            break;
+                        case slides.length-1:
+                            item.id='page1';
+                            break;
+                        default:
+                            item.id='page'+index;
+                    }
+                }
+            });
+        },
+        onTouchStart: function(swiper,even){
+            var h=$(window).height();
+            var s1=$(".slide2 .article1").height();
+            var s2=$(".slide3 .article1").height();
+            var s3=$(".slide4 .article1").height();
+            var s4=$(".slide5 .article1").height();
+            var ss1=h-s1;
+            var ss2=h-s2;
+            var ss3=h-s3;
+            var ss4=h-s4;
+            console.log(s1,s2,s3,s4)
+            console.log(ss1,ss2,ss3,ss4)
+            $(".slide2 .article1").css({
+                "marginTop":ss1/2
+            })
+            $(".slide3 .article1").css({
+                "marginTop":ss2/2
+            })
+            $(".slide4 .article1").css({
+                "marginTop":ss3/2
+            })
+            $(".slide5 .article1").css({
+                "marginTop":ss4/2
+            })
+        },
+        onInit: function (swiper) {   //初始化
+            var slides=swiper.slides; //获取所有的滑块
+            slides[0].id='p age1';
+
+            var h=$(window).height();
+            var s1=$(".slide2 .article1").height();
+            var s2=$(".slide3 .article1").height();
+            var s3=$(".slide4 .article1").height();
+            var s4=$(".slide5 .article1").height();
+            var ss1=h-s1;
+            var ss2=h-s2;
+            var ss3=h-s3;
+            var ss4=h-s4;
+            console.log(s1,s2,s3,s4)
+            console.log(ss1,ss2,ss3,ss4)
+            $(".slide2 .article1").css({
+                "marginTop":ss1/2
+            })
+            $(".slide3 .article1").css({
+                "marginTop":ss2/2
+            })
+            $(".slide4 .article1").css({
+                "marginTop":ss3/2
+            })
+            $(".slide5 .article1").css({
+                "marginTop":ss4/2
+            })
+        },
+        centeredSlides:true
+    })
+
+    var music=document.querySelector('.music')
+    var audio=document.querySelector('#audio')
+    window.setTimeout(function () {
+        audio.play();
+        music.style.opacity=1;
+        music.className='music musicMove';
+    },1000)
+    /*音频文件 play() 停止pause
+     * 怎样判断音频文件是播放还是停止的 audio.paused true 停止 false -->播放
+     *
+     * */
+    music.addEventListener('click', function () {
+        if(audio.paused){
+            audio.play();
+            music.className='music musicMove';
+            $(".music").css("background-image","url(audio/music.svg)")
+        }else{
+            audio.pause();
+            music.className='music';
+            $(".music").css("background-image","url(img/offmusice.png)")
+        }
+    },false)
+
+
+
+</script>
+</body>
+</html>
